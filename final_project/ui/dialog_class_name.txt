@@ -1,0 +1,17 @@
+digitClicked
+unaryOperatorClicked
+additiveOperatorClicked
+multiplicativeOperatorClicked
+equalClicked
+pointClicked
+changeSignClicked
+backspaceClicked
+clear
+clearAll
+clearMemory
+readMemory
+setMemory
+addToMemory
+createButton
+abortOperation
+calculate
