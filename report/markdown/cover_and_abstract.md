@@ -1,7 +1,7 @@
 ---
 university_zh: '國立虎尾科技大學'
 institute_zh: '機械設計工程系'
-category_zh: '計算機程式 bg1 期末報告'
+category_zh: '計算機程式 ag1 期末報告'
 title_zh: 'PyQt5 事件導向計算器'
 title_en: 'PyQt5 Event-Driven Calculator Project'
 author:

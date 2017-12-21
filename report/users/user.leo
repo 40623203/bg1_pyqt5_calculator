@@ -60,7 +60,6 @@
 <t tx="40323230.20170123213451.1">@language python
 filename = "report"
 import os, platform
-import chapter
 # 更換目錄到 markdown 
 os.chdir("./../markdown")
 
@@ -84,6 +83,7 @@ chapter_list = " ".join("./paragraph/" + i for i in [
 "portable_system.md", 
 "python_introduction.md", 
 "pyqt5_introduction.md", 
+"calculator.md", 
 "discussion.md", 
 "results.md", 
 ])
@@ -99,7 +99,7 @@ g.es('-'*12)</t>
 <t tx="ahshoe.20161120122151.1">---
 university_zh: '國立虎尾科技大學'
 institute_zh: '機械設計工程系'
-category_zh: '計算機程式 bg1 期末報告'
+category_zh: '計算機程式 ag1 期末報告'
 title_zh: 'PyQt5 事件導向計算器'
 title_en: 'PyQt5 Event-Driven Calculator Project'
 author:
