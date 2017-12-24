@@ -67,11 +67,12 @@ class Dialog(QDialog, Ui_Dialog):
         pass
         
     def pointClicked(self):
-        
-        
-    def changeSignClicked(self):
         pass
-        
+
+    def changeSignClicked(self):
+        '''變號鍵按下後的處理方法'''
+        pass
+            
     def backspaceClicked(self):
         '''回復鍵按下的處理方法'''
         pass
