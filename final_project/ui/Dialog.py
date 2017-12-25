@@ -114,7 +114,12 @@ class Dialog(QDialog, Ui_Dialog):
         
     def clearAll(self):
         '''全部清除鍵按下後的處理方法'''
-        pass
+        self.sumSoFar =0.0
+        self.factorSoFar =0.0
+        self.pendingAdditiveOperator=''
+        self.pendingMultiplicativeOperator=''
+        self.display.setText('0')
+        self.waitingForOperand = True
         
     def clearMemory(self):
         '''清除記憶體鍵按下後的處理方法'''
