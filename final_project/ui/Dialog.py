@@ -46,15 +46,25 @@ class Dialog(QDialog, Ui_Dialog):
             i.clicked.connect(self.multiplicativeOperatorClicked)
         
         self.equalButton.clicked.connect(self.equalClicked)
+        
         self.clearButton.clicked.connect(self.clear)
+        
         self.clearAllButton.clicked.connect(self.clearAll)
+        
         self.readMemoryButton.clicked.connect(self.readMemory)
-        self.clearMemoryButton.connect(self.clearMemory)
-        self.setMemoryButton.connect(self.setMemory)
+        
+        self.clearMemoryButton.clicked.connect(self.clearMemory)
+        
+        self.setMemoryButton.clicked.connect(self.setMemory)
+        
         self.addToMemoryButton.clicked.connect(self.addToMemory)
-        self.poinitButton.clicked.connect(self.pointClicked)
-        self.chacgeSignButton.clicked.connect(self.changeSignClicked)
+        
+        self.pointButton.clicked.connect(self.pointClicked)
+        
+        self.changeSignButton.clicked.connect(self.changeSignClicked)
+        
         self.backspaceButton.clicked.connect(self.backspaceClicked)
+        
         unaryOperator = [self.squareRootButton, self.powerButton,  self.reciprocalButton ]
         for i in unaryOperator:
             i.clicked.connect(self.unaryOperatorClicked)
