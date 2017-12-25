@@ -26,8 +26,6 @@ class Dialog(QDialog, Ui_Dialog):
         
         self.waitingForOperand = True
         
-        self.clearButton.clicked.connect(self.clear)
-        
         self.display.setText('0')
        
         digits = [self.one,  self.two,  self.three, \
@@ -36,7 +34,30 @@ class Dialog(QDialog, Ui_Dialog):
         
         for i in digits:
             i.clicked.connect(self.digitClicked)
-
+            
+        plus_minus = [self.plusButton,  self.minusButton]
+        
+        for i in plus_minus:
+            i.clicked.connect(self.additiveOperatorClicked)
+            
+        multiply_divide = [self.timesButton,  self.divisionButton]
+        
+        for i in multiply_divide:
+            i.clicked.connect(self.multiplicativeOperatorClicked)
+        
+        self.equalButton.clicked.connect(self.equalClicked)
+        self.clearButton.clicked.connect(self.clear)
+        self.clearAllButton.clicked.connect(self.clearAll)
+        self.readMemoryButton.clicked.connect(self.readMemory)
+        self.clearMemoryButton.connect(self.clearMemory)
+        self.setMemoryButton.connect(self.setMemory)
+        self.addToMemoryButton.clicked.connect(self.addToMemory)
+        self.poinitButton.clicked.connect(self.pointClicked)
+        self.chacgeSignButton.clicked.connect(self.changeSignClicked)
+        self.backspaceButton.clicked.connect(self.backspaceClicked)
+        unaryOperator = [self.squareRootButton, self.powerButton,  self.reciprocalButton ]
+        for i in unaryOperator:
+            i.clicked.connect(self.unaryOperatorClicked)
     def digitClicked(self):
         clickedButton = self.sender()
         digitValue = int(clickedButton.text())
