@@ -65,10 +65,30 @@ class Dialog(QDialog, Ui_Dialog):
         
         self.backspaceButton.clicked.connect(self.backspaceClicked)
         
-        unaryOperator = [self.squareRootButton, self.powerButton,  self.reciprocalButton ]
+        unaryOperator = [self.squareRootButton, self.powerButton,  self.reciprocalButton]
+        
         for i in unaryOperator:
             i.clicked.connect(self.unaryOperatorClicked)
+        
+        self.pendingAdditiveOperator = ''
+        
+        self.sumSoFar = 0.0
+        
+        self.waitingForOperand = True
+        
+        self.sumInMemory = 0.0
+        
+        self.factorSoFar = 0.0
+        
+        self.pendingMultiplicativeOperator = ''
+        
     def digitClicked(self):
+        '''
+        使用者按下數字鍵, 必須能夠累積顯示該數字
+        當顯示幕已經為 0, 再按零不會顯示 00, 而仍顯示 0 或 0.0
+        
+        '''
+        #pass
         clickedButton = self.sender()
         digitValue = int(clickedButton.text())
         
@@ -87,7 +107,32 @@ class Dialog(QDialog, Ui_Dialog):
         
     def additiveOperatorClicked(self):
         '''加或減按下後進行的處理方法'''
-        pass
+        #pass
+        clickedButton = self.sender()
+        clickedOperator = clickedButton.text()
+        operand = float(self.display.text())
+
+        if self.pendingMultiplicativeOperator:
+            if not self.calculate(operand, self.pendingMultiplicativeOperator):
+                self.abortOperation()
+                return
+
+            self.display.setText(str(self.factorSoFar))
+            operand = self.factorSoFar
+            self.factorSoFar = 0.0
+            self.pendingMultiplicativeOperator = ''
+
+        if self.pendingAdditiveOperator:
+            if not self.calculate(operand, self.pendingAdditiveOperator):
+                self.abortOperation()
+                return
+
+            self.display.setText(str(self.sumSoFar))
+        else:
+            self.sumSoFar = operand
+
+        self.pendingAdditiveOperator = clickedOperator
+        self.waitingForOperand = True
         
     def multiplicativeOperatorClicked(self):
         '''乘或除按下後進行的處理方法'''
@@ -95,9 +140,33 @@ class Dialog(QDialog, Ui_Dialog):
         
     def equalClicked(self):
         '''等號按下後的處理方法'''
-        pass
+        #pass
+        operand = float(self.display.text())
+
+        if self.pendingMultiplicativeOperator:
+            if not self.calculate(operand, self.pendingMultiplicativeOperator):
+                self.abortOperation()
+                return
+
+            operand = self.factorSoFar
+            self.factorSoFar = 0.0
+            self.pendingMultiplicativeOperator = ''
+
+        if self.pendingAdditiveOperator:
+            if not self.calculate(operand, self.pendingAdditiveOperator):
+                self.abortOperation()
+                return
+
+            self.pendingAdditiveOperator = ''
+        else:
+            self.sumSoFar = operand
+
+        self.display.setText(str(self.sumSoFar))
+        self.sumSoFar = 0.0
+        self.waitingForOperand = True
         
     def pointClicked(self):
+        '''小數點按下後的處理方法'''
         pass
 
     def changeSignClicked(self):
@@ -109,11 +178,14 @@ class Dialog(QDialog, Ui_Dialog):
         pass
         
     def clear(self):
+        '''清除鍵按下後的處理方法'''
+        #pass
         self.display.setText('0')
         self.waitingForOperand = True
         
     def clearAll(self):
         '''全部清除鍵按下後的處理方法'''
+        #pass
         self.sumSoFar =0.0
         self.factorSoFar =0.0
         self.pendingAdditiveOperator=''
@@ -148,6 +220,19 @@ class Dialog(QDialog, Ui_Dialog):
         '''中斷運算'''
         pass
         
-    def calculate(self):
+    def calculate(self, rightOperand, pendingOperator):
         '''計算'''
-        pass
+        #pass
+        if pendingOperator == "+":
+            self.sumSoFar += rightOperand
+        elif pendingOperator == "-":
+            self.sumSoFar -= rightOperand
+        elif pendingOperator == u"\N{MULTIPLICATION SIGN}":
+            self.factorSoFar *= rightOperand
+        elif pendingOperator == u"\N{DIVISION SIGN}":
+            if rightOperand == 0.0:
+                return False
+
+            self.factorSoFar /= rightOperand
+
+        return True
