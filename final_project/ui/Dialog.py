@@ -25,8 +25,6 @@ class Dialog(QDialog, Ui_Dialog):
         super(Dialog, self).__init__(parent)
         self.setupUi(self)
         
-        self.waitingForOperand = True
-        
         self.display.setText('0')
        
         digits = [self.one,  self.two,  self.three, \
@@ -247,9 +245,9 @@ class Dialog(QDialog, Ui_Dialog):
             self.sumSoFar += rightOperand
         elif pendingOperator == "-":
             self.sumSoFar -= rightOperand
-        elif pendingOperator == u"\N{MULTIPLICATION SIGN}":
+        elif pendingOperator == "*":
             self.factorSoFar *= rightOperand
-        elif pendingOperator == u"\N{DIVISION SIGN}":
+        elif pendingOperator == "/":
             if rightOperand == 0.0:
                 return False
 
