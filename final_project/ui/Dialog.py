@@ -154,7 +154,22 @@ class Dialog(QDialog, Ui_Dialog):
         
     def multiplicativeOperatorClicked(self):
         '''乘或除按下後進行的處理方法'''
-        pass
+        #pass
+        clickedButton = self.sender()
+        clickedOperator = clickedButton.text()
+        operand = float(self.display.text())
+ 
+        if self.pendingMultiplicativeOperator:
+            if not self.calculate(operand, self.pendingMultiplicativeOperator):
+                self.abortOperation()
+                return
+ 
+            self.display.setText(str(self.factorSoFar))
+        else:
+            self.factorSoFar = operand
+ 
+        self.pendingMultiplicativeOperator = clickedOperator
+        self.waitingForOperand = True
         
     def equalClicked(self):
         '''等號按下後的處理方法'''
