@@ -106,7 +106,15 @@ class Dialog(QDialog, Ui_Dialog):
             
     def backspaceClicked(self):
         '''回復鍵按下的處理方法'''
-        pass
+        if self.waitingForOperand:
+            return
+     
+        text = self.display.text()[:-1]
+        if not text:
+            text = '0'
+            self.waitingForOperand = True
+        
+        self.display.setText(text)
         
     def clear(self):
         self.display.setText('0')
