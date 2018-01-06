@@ -35,6 +35,7 @@
 </v>
 <v t="yen.20170429215252.1" a="E"><vh>@clean python_introduction.md</vh>
 <v t="yen.20170429215308.1"><vh>Python 程式語法介紹</vh></v>
+<v t="leo.20180106143110.1"><vh>newHeadline</vh></v>
 </v>
 <v t="yen.20170429215416.1" a="E"><vh>@clean pyqt5_introduction.md</vh>
 <v t="yen.20170429215446.2"><vh>PyQt5 語法介紹</vh></v>
@@ -222,6 +223,31 @@ abstract: |
 參考 - 詳列所引用的參考內容
 
 附錄 - 附加值得參考的詳細內容</t>
+<t tx="leo.20180106143110.1">@color
+@language python
+
+import os
+import subprocess
+import threading
+import http.server, ssl
+
+def domake():
+    # build directory
+    os.chdir("./../")
+    server_address = ('localhost', 5443)
+    httpd = http.server.HTTPServer(server_address, http.server.SimpleHTTPRequestHandler)
+    httpd.socket = ssl.wrap_socket(httpd.socket,
+                                   server_side=True,
+                                   certfile='localhost.crt',
+                                   keyfile='localhost.key',
+                                   ssl_version=ssl.PROTOCOL_TLSv1)
+    print(os.getcwd())
+    print("5443 https server started")
+    httpd.serve_forever()
+
+# 利用執行緒執行 https 伺服器
+make = threading.Thread(target=domake)
+make.start()</t>
 <t tx="yen.20170429103742.1"></t>
 <t tx="yen.20170429103940.1"></t>
 <t tx="yen.20170429132400.1">每一位協同人員各在 users 目錄中建立一個 .leo 檔案
@@ -410,6 +436,10 @@ Table: 價目表 {#tbl:價目表}
 
 Github 協同倉儲
 ---
+bg1 協同倉儲 : https://github.com/40623203/bg1_pyqt5_calculator
+
+
+
 
 學員心得
 ---

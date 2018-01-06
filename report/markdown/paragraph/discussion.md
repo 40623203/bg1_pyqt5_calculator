@@ -22,6 +22,10 @@ Fossil SCM
 
 Github 協同倉儲
 ---
+bg1 協同倉儲 : https://github.com/40623203/bg1_pyqt5_calculator
+
+
+
 
 學員心得
 ---
