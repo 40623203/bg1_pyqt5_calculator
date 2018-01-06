@@ -298,6 +298,12 @@ print 函式
 重複迴圈
 ---
 
+![for迴圈][]
+
+稱為圖 {@fig:for迴圈}。
+
+[for迴圈]: ./images/for迴圈.png {#fig:for迴圈}
+
 判斷式
 ---
 
