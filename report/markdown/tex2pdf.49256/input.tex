@@ -1,0 +1,673 @@
+\documentclass[12pt,,]{report}
+\usepackage{lmodern}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{fontspec}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+
+    \usepackage{xeCJK}
+    % 中文自動換行
+    \XeTeXlinebreaklocale "zh"
+    % 文字的彈性間距
+    \XeTeXlinebreakskip = 0pt plus 1pt
+    \newfontlanguage{Chinese}{CHN}
+    % 章次20級，節次16級，小節次以下14級，本文12級字
+    \def\LARGE{\fontsize{20}{30}\selectfont}%章次
+    \def\Large{\fontsize{16}{24}\selectfont}%節次
+    \def\large{\fontsize{14}{21}\selectfont}%小節次
+    \usepackage{indentfirst}
+    \usepackage{CJKnumb}
+    \renewcommand{\figurename}{圖}
+    \renewcommand{\thefigure}{{\arabic{chapter}}.\arabic{figure}}
+    \renewcommand{\tablename}{表}
+    \renewcommand{\thetable}{{\arabic{chapter}}.\arabic{table}}
+    %重製章節
+    \renewcommand{\chaptername}{}
+    \renewcommand{\thechapter}{第\CJKnumber{\arabic{chapter}}章}
+    \renewcommand{\thesection}{{\arabic{chapter}}.\arabic{section}}
+    \renewcommand{\thesubsection}{{\arabic{chapter}}.{\arabic{section}}.\arabic{subsection}}
+    %設定行距與中英文字型
+    \linespread{1}\selectfont
+    \setCJKmainfont{SimSun}
+    \setmainfont{Times New Roman}
+    \setromanfont{Times New Roman}
+    \setmonofont{Times New Roman}
+    %重製章節標籤
+    \usepackage{titlesec}
+    \titleformat{\chapter}[block]{\LARGE\centering}{\thechapter}{0.5em}{}
+    \titleformat{\section}[block]{\Large}{\thesection}{0.5em}{}
+    \titleformat{\subsection}[block]{\large}{\thesubsection}{0.5em}{}
+    % 重製目錄
+    \usepackage{titletoc}
+    \titlespacing{\chapter}{0pt}{*0}{*2}
+    \titlespacing{\section}{0pt}{*1}{*1}
+    \titlespacing{\subsection}{0pt}{*1}{*1}
+    \titlespacing{\subsubsection}{0pt}{*1}{*1}
+    \titlecontents{chapter}[0em]{}{\contentspush{\thecontentslabel}\hspace*{1em}}{}{\titlerule*[0.7pc]{.}\contentspage}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{
+\usepackage{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\usepackage[margin=1in]{geometry}
+\usepackage[unicode=true]{hyperref}
+\hypersetup{
+            pdfauthor={設計一乙 40623201 王君庭; 設計一乙 40623202 吳姍蓉; 設計一乙 40623203 蔡宜芳; 設計一乙 40623210 翁嘉宏; 設計一乙 40623211 王得榮; 設計一乙 40623212 魏有泉},
+            pdfborder={0 0 0},
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[shorthands=off,main=]{babel}
+\else
+  \usepackage{polyglossia}
+  \setmainlanguage[]{}
+\fi
+\usepackage{longtable,booktabs}
+% Fix footnotes in tables (requires footnote package)
+\IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{long table}}{}
+\usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+
+
+\begin{document}
+%Cover Start
+\begin{titlepage}
+\vspace{1cm}
+\begin{center}
+\fontsize{36}{54}\selectfont{
+    國立虎尾科技大學\par
+}
+\fontsize{28}{42}\selectfont{機械設計工程系\par}
+\fontsize{24}{36}\selectfont{計算機程式 bg1 期末報告\par}
+\vspace{1.5cm}
+\fontsize{20}{30}\selectfont{
+    PyQt5 事件導向計算器\par
+    PyQt5 Event-Driven Calculator Project\par
+}
+\vspace{\fill}
+\fontsize{18}{27}\selectfont{
+    學生：\par
+    設計一乙 40623201 王君庭 \par 設計一乙 40623202 吳姍蓉 \par 設計一乙 40623203 蔡宜芳 \par 設計一乙 40623210 翁嘉宏 \par 設計一乙 40623211 王得榮 \par 設計一乙 40623212 魏有泉 \par
+    指導教授：嚴家銘\par
+}
+\vspace{1.5cm}
+\fontsize{16}{24}\selectfont{2017.12.18\par}
+\end{center}
+\vspace{1cm}
+\end{titlepage}
+
+\newcommand\frontmatter{
+    \cleardoublepage
+    \pagenumbering{roman}
+}
+
+\newcommand\mainmatter{
+    \cleardoublepage
+    \pagenumbering{arabic}
+}
+
+\newcommand\backmatter{
+    \if@openright
+        \cleardoublepage
+    \else
+        \clearpage
+    \fi
+}
+
+%Document start
+
+% Set page number to arabic i ii...
+\frontmatter
+\renewcommand{\abstractname}{\LARGE \center 摘要}
+\chapter*{摘要}
+\addcontentsline{toc}{chapter}{摘要}
+\fontsize{14}{21}\selectfont{這裡是摘要內容。A pipe character, followed by an indented block of text
+is treated as a literal block, in which newlines are preserved
+throughout the block, including the final newline.
+
+\begin{itemize}
+\tightlist
+\item
+  以 YAML 的方式插入。
+\item
+  The `+' indicator says to keep newlines at the end of text blocks.
+\item
+  使用 Markdown 語法。
+\item
+  前面使用加號
+\end{itemize}
+
+本研究的重點在於 \ldots{}}
+
+
+\begingroup
+    \renewcommand{\contentsname}{\center 目錄 \addcontentsline{toc}{chapter}{目錄}}
+    \renewcommand{\numberline}[1]{~#1\hspace*{1em}}
+        \setcounter{tocdepth}{2}
+    \tableofcontents
+    \newcommand{\lotlabel}{表}
+    \renewcommand{\listtablename}{\center 表目錄 \addcontentsline{toc}{chapter}{表目錄}}
+    \renewcommand{\numberline}[1]{\lotlabel~#1\hspace*{1em}}
+    \listoftables
+    \newcommand{\loflabel}{圖}
+    \renewcommand{\listfigurename}{\center 圖目錄 \addcontentsline{toc}{chapter}{圖目錄}}
+    \renewcommand{\numberline}[1]{\loflabel~#1\hspace*{1em}}
+    \listoffigures
+\endgroup
+
+% Start normal page number, 1 2 3
+\mainmatter
+\hypertarget{ux524dux8a00}{%
+\chapter{前言}\label{ux524dux8a00}}
+
+計算器程式期末報告前言
+
+前言: 電腦輔助設計(Computer Aided
+Design)，係指運用電腦功能及特性協助使用者完成設計。
+輔助係指輔佐、非主要的，意旨電腦只是相持物，而非設計主要核心，操作電腦的使用者才是主體。然而，電腦輔助設計中，並非要使用特定軟硬體才能完成工作，面對各種實際情況的考驗，在堪用工具，甚至自行打造工具完成設計。
+設計是一種表達運用:口語、文字、2D、3D、數學、實體等表達方法交互運用下所完成的可交付內容，現今所謂機械設計中的互動元件泛指:固體、流體與軟體元件。
+本學期計算機程式是由 python3 與 PyQt5
+建立簡易的計算機，其中使用基本python3 程式語法 python3
+物件導向和視窗事件驅動程式的基本概念。使用可攜隨身系統中的基本視窗命令提示指令元
+(Command Prompt Commands) 編輯近端檔案及提交至遠端倉儲，第十一週分組使用
+github 協同倉儲製作簡易計算機。
+
+\hypertarget{ux53efux651cux7a0bux5f0fux7cfbux7d71ux4ecbux7d39}{%
+\chapter{可攜程式系統介紹}\label{ux53efux651cux7a0bux5f0fux7cfbux7d71ux4ecbux7d39}}
+
+可攜程式系統介紹
+
+\hypertarget{ux555fux52d5ux8207ux95dcux9589}{%
+\section{啟動與關閉}\label{ux555fux52d5ux8207ux95dcux9589}}
+
+Windows 的內容
+
+有一張圖片：
+
+\begin{figure}
+\centering
+\includegraphics{./tex2pdf.49256/e0ef408d9559203849a0aa26f79f9b032b709c7a.png}
+\caption{Kmol\label{fig:駱駝}}
+\end{figure}
+
+稱為圖 \ref{fig:駱駝}。
+
+各 md 檔案可以在 images 目錄下自訂與 md 檔案名稱相同的子目錄存放影像檔案
+
+\hypertarget{ux555fux52d5ux8207ux95dcux95892}{%
+\section{啟動與關閉2}\label{ux555fux52d5ux8207ux95dcux95892}}
+
+\hypertarget{python-ux7a0bux5f0fux8a9eux6cd5}{%
+\chapter{Python 程式語法}\label{python-ux7a0bux5f0fux8a9eux6cd5}}
+
+Python 程式語法
+
+\hypertarget{ux8b8aux6578ux547dux540d}{%
+\section{變數命名}\label{ux8b8aux6578ux547dux540d}}
+
+IPv4 的內容
+
+有一張圖片：
+
+\begin{figure}
+\centering
+\includegraphics{./tex2pdf.49256/e0ef408d9559203849a0aa26f79f9b032b709c7a.png}
+\caption{Kmol\label{fig:駱駝}}
+\end{figure}
+
+稱為圖 \ref{fig:駱駝}。
+
+各 md 檔案可以在 images 目錄下自訂與 md 檔案名稱相同的子目錄存放影像檔案
+
+\hypertarget{print-ux51fdux5f0f}{%
+\section{print 函式}\label{print-ux51fdux5f0f}}
+
+\hypertarget{ux91cdux8907ux8ff4ux5708}{%
+\section{重複迴圈}\label{ux91cdux8907ux8ff4ux5708}}
+
+\begin{figure}
+\centering
+\includegraphics{./tex2pdf.49256/4be2397ea792a71e2f4da9500ff7c84d700b58a4.png}
+\caption{for迴圈\label{fig:for迴圈}}
+\end{figure}
+
+稱為圖 \ref{fig:for迴圈}。
+
+\hypertarget{ux5224ux65b7ux5f0f}{%
+\section{判斷式}\label{ux5224ux65b7ux5f0f}}
+
+\hypertarget{ux6578ux5217}{%
+\section{數列}\label{ux6578ux5217}}
+
+\hypertarget{pyqt5-ux7c21ux4ecb}{%
+\chapter{PyQt5 簡介}\label{pyqt5-ux7c21ux4ecb}}
+
+說明 PyQt5 基本架構與程式開發流程
+
+\hypertarget{pyqt5-ux67b6ux69cb}{%
+\section{PyQt5 架構}\label{pyqt5-ux67b6ux69cb}}
+
+C 的內容
+
+其中包含一個表格：
+
+\begin{longtable}[]{@{}ccccccccc@{}}
+\caption{Python 網際框架比較 \label{tbl:網際框架}}\tabularnewline
+\toprule
+\begin{minipage}[b]{0.09\columnwidth}\centering
+Framework\strut
+\end{minipage} & \begin{minipage}[b]{0.07\columnwidth}\centering
+Started\strut
+\end{minipage} & \begin{minipage}[b]{0.04\columnwidth}\centering
+Py2\strut
+\end{minipage} & \begin{minipage}[b]{0.04\columnwidth}\centering
+Py3\strut
+\end{minipage} & \begin{minipage}[b]{0.04\columnwidth}\centering
+ORM\strut
+\end{minipage} & \begin{minipage}[b]{0.13\columnwidth}\centering
+Template Engine\strut
+\end{minipage} & \begin{minipage}[b]{0.11\columnwidth}\centering
+Auth Moudule\strut
+\end{minipage} & \begin{minipage}[b]{0.12\columnwidth}\centering
+Database Admin\strut
+\end{minipage} & \begin{minipage}[b]{0.11\columnwidth}\centering
+Project Scale\strut
+\end{minipage}\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+\begin{minipage}[b]{0.09\columnwidth}\centering
+Framework\strut
+\end{minipage} & \begin{minipage}[b]{0.07\columnwidth}\centering
+Started\strut
+\end{minipage} & \begin{minipage}[b]{0.04\columnwidth}\centering
+Py2\strut
+\end{minipage} & \begin{minipage}[b]{0.04\columnwidth}\centering
+Py3\strut
+\end{minipage} & \begin{minipage}[b]{0.04\columnwidth}\centering
+ORM\strut
+\end{minipage} & \begin{minipage}[b]{0.13\columnwidth}\centering
+Template Engine\strut
+\end{minipage} & \begin{minipage}[b]{0.11\columnwidth}\centering
+Auth Moudule\strut
+\end{minipage} & \begin{minipage}[b]{0.12\columnwidth}\centering
+Database Admin\strut
+\end{minipage} & \begin{minipage}[b]{0.11\columnwidth}\centering
+Project Scale\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.09\columnwidth}\centering
+Pyramid\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\centering
+2005\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering
+V\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering
+V\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\centering
+V\strut
+\end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\centering
+large\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.09\columnwidth}\centering
+Django\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\centering
+2006\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering
+V\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering
+V\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering
+V\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+V\strut
+\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\centering
+V\strut
+\end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\centering
+V\strut
+\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\centering
+large\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.09\columnwidth}\centering
+Flask\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\centering
+2010\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering
+V\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\centering
+small\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+稱為表 \ref{tbl:網際框架}。
+
+\begin{longtable}[]{@{}lcr@{}}
+\caption{價目表 \label{tbl:價目表}}\tabularnewline
+\toprule
+Tables & Are & Cool\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+Tables & Are & Cool\tabularnewline
+\midrule
+\endhead
+col 1 is & left-aligned & \$1600\tabularnewline
+col 2 is & centered & \$12\tabularnewline
+col 3 is & right-aligned & \$1\tabularnewline
+\bottomrule
+\end{longtable}
+
+稱為表 \ref{tbl:價目表}。
+
+關於表格生成可以參考這裡：\url{http://www.tablesgenerator.com/markdown_tables}
+
+\hypertarget{calculator-ux7a0bux5f0f}{%
+\chapter{Calculator 程式}\label{calculator-ux7a0bux5f0f}}
+
+Calculator 程式細部說明
+
+\hypertarget{ux5efaux7acbux5c0dux8a71ux6846}{%
+\section{建立對話框}\label{ux5efaux7acbux5c0dux8a71ux6846}}
+
+自動控制 的內容
+
+其中包含一個表格：
+
+\begin{longtable}[]{@{}ccccccccc@{}}
+\caption{Python 網際框架比較 \label{tbl:網際框架}}\tabularnewline
+\toprule
+\begin{minipage}[b]{0.09\columnwidth}\centering
+Framework\strut
+\end{minipage} & \begin{minipage}[b]{0.07\columnwidth}\centering
+Started\strut
+\end{minipage} & \begin{minipage}[b]{0.04\columnwidth}\centering
+Py2\strut
+\end{minipage} & \begin{minipage}[b]{0.04\columnwidth}\centering
+Py3\strut
+\end{minipage} & \begin{minipage}[b]{0.04\columnwidth}\centering
+ORM\strut
+\end{minipage} & \begin{minipage}[b]{0.13\columnwidth}\centering
+Template Engine\strut
+\end{minipage} & \begin{minipage}[b]{0.11\columnwidth}\centering
+Auth Moudule\strut
+\end{minipage} & \begin{minipage}[b]{0.12\columnwidth}\centering
+Database Admin\strut
+\end{minipage} & \begin{minipage}[b]{0.11\columnwidth}\centering
+Project Scale\strut
+\end{minipage}\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+\begin{minipage}[b]{0.09\columnwidth}\centering
+Framework\strut
+\end{minipage} & \begin{minipage}[b]{0.07\columnwidth}\centering
+Started\strut
+\end{minipage} & \begin{minipage}[b]{0.04\columnwidth}\centering
+Py2\strut
+\end{minipage} & \begin{minipage}[b]{0.04\columnwidth}\centering
+Py3\strut
+\end{minipage} & \begin{minipage}[b]{0.04\columnwidth}\centering
+ORM\strut
+\end{minipage} & \begin{minipage}[b]{0.13\columnwidth}\centering
+Template Engine\strut
+\end{minipage} & \begin{minipage}[b]{0.11\columnwidth}\centering
+Auth Moudule\strut
+\end{minipage} & \begin{minipage}[b]{0.12\columnwidth}\centering
+Database Admin\strut
+\end{minipage} & \begin{minipage}[b]{0.11\columnwidth}\centering
+Project Scale\strut
+\end{minipage}\tabularnewline
+\midrule
+\endhead
+\begin{minipage}[t]{0.09\columnwidth}\centering
+Pyramid\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\centering
+2005\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering
+V\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering
+V\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\centering
+V\strut
+\end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\centering
+large\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.09\columnwidth}\centering
+Django\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\centering
+2006\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering
+V\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering
+V\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering
+V\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+V\strut
+\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\centering
+V\strut
+\end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\centering
+V\strut
+\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\centering
+large\strut
+\end{minipage}\tabularnewline
+\begin{minipage}[t]{0.09\columnwidth}\centering
+Flask\strut
+\end{minipage} & \begin{minipage}[t]{0.07\columnwidth}\centering
+2010\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering
+V\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.04\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.13\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.12\columnwidth}\centering
+\strut
+\end{minipage} & \begin{minipage}[t]{0.11\columnwidth}\centering
+small\strut
+\end{minipage}\tabularnewline
+\bottomrule
+\end{longtable}
+
+稱為表 \ref{tbl:網際框架}。
+
+\begin{longtable}[]{@{}lcr@{}}
+\caption{價目表 \label{tbl:價目表}}\tabularnewline
+\toprule
+Tables & Are & Cool\tabularnewline
+\midrule
+\endfirsthead
+\toprule
+Tables & Are & Cool\tabularnewline
+\midrule
+\endhead
+col 1 is & left-aligned & \$1600\tabularnewline
+col 2 is & centered & \$12\tabularnewline
+col 3 is & right-aligned & \$1\tabularnewline
+\bottomrule
+\end{longtable}
+
+稱為表 \ref{tbl:價目表}。
+
+關於表格生成可以參考這裡：\url{http://www.tablesgenerator.com/markdown_tables}
+
+{建立對話框1\label{fig:建立對話框1}}
+
+稱為圖 \ref{fig:建立對話框1}。
+
+\begin{figure}
+\centering
+\includegraphics{./tex2pdf.49256/d31b7844a18541646acc0081ef0634680203c75d.png}
+\caption{建立對話框2\label{fig:建立對話框2}}
+\end{figure}
+
+稱為圖 \ref{fig:建立對話框2}。
+
+\begin{figure}
+\centering
+\includegraphics{./tex2pdf.49256/2a5d343f87e6948e4f400587a8eca053e1d7fa3a.png}
+\caption{建立對話框3\label{fig:建立對話框3}}
+\end{figure}
+
+稱為圖 \ref{fig:建立對話框3}。
+
+\hypertarget{ux5efaux7acbux6309ux9215}{%
+\section{建立按鈕}\label{ux5efaux7acbux6309ux9215}}
+
+\hypertarget{ux5efaux7acbux7a0bux5f0fux78bc}{%
+\section{建立程式碼}\label{ux5efaux7acbux7a0bux5f0fux78bc}}
+
+\hypertarget{ux5fc3ux5f97}{%
+\chapter{心得}\label{ux5fc3ux5f97}}
+
+期末報告心得
+
+Fossil SCM
+Fossil是一個分散式版本控制系統、缺陷跟蹤管理系統以及在軟體開發中使用的wiki軟體伺服器。
+對於設計師而言，日常工作中最常使用的工具，可能會是編輯器，或專為某種程式語言所設計的整合開發環境；而對負責軟體開發工作的軟體團隊成員來說，版本控制系統則是另一套相當重要的軟體工具。如果沒有版本控制系統，大型軟體的開發團隊成員將難以有效控制軟體版本，並可能導致程式臭蟲增加。一般人對於軟體本身的使用需求，多半是希望操作越簡單越好，並有相當程度的穩定性與可靠性。而操作簡單與系統本身穩定性高，正是
+Fossil
+所強調的二大重點。一般人即使沒有使用版本控制軟體的經驗，也能在閱讀
+Fossil 提供的簡單文件之後立即上手。Fossil
+之所以可以作為官方網站的平台，是因為除了版本控制系統相關的功能以外，亦提供了程式臭蟲追蹤
+(Bug Tracking)
+與維基共筆系統的支援能力。與本身的版本控制系統功能類似，Fossil
+的程式臭蟲追蹤功能與維基共筆系統採用分散式的處理方式。利用 Fossil 作為
+Blog
+平台的架設解決方案，所以無論使用者需要的是單純的版本控制，或是希望架設網站作為資訊分享的平台，都能利用
+Fossil 一併解決。 網誌心得 --- 40623201 -
+https://cpb.kmol.info/40623201/doc/trunk/blog/
+
+40623202 - https://cpb.kmol.info/40623202/doc/trunk/blog/
+
+40623203 - https://cpb.kmol.info/40623203/doc/trunk/blog/
+
+40623210 - https://cpb.kmol.info/40623210/doc/trunk/blog/
+
+40623211 - https://cpb.kmol.info/40623211/doc/trunk/blog/
+
+40623212 - https://cpb.kmol.info/40623212/doc/trunk/blog/
+
+\hypertarget{github-ux5354ux540cux5009ux5132}{%
+\section{Github 協同倉儲}\label{github-ux5354ux540cux5009ux5132}}
+
+bg1 協同倉儲 : https://github.com/40623203/bg1\_pyqt5\_calculator
+
+\hypertarget{ux5b78ux54e1ux5fc3ux5f97}{%
+\section{學員心得}\label{ux5b78ux54e1ux5fc3ux5f97}}
+
+40623201 -
+
+40623202 -
+
+40623203 -
+
+40623210 -
+
+40623211 - 經過這幾週的計算機製作, 我學到如何應用 PyQt 和 eric6,
+更學到分工合作的重要, 有效的分工, 能讓工作流程更順暢, 各個組員盡守本分,
+使我們更團結一心, 其中我在製作根號時, 因爲一個英文字母漏掉,
+導致系統無法運算, 所以我看到電腦打字準確性的重要,
+第一次自己製作計算機是一個好棒的體驗
+
+40623212 -
+
+說明各學員任務與執行過程
+
+40623201 -
+
+40623202 -
+
+40623203 -
+
+40623210 -
+
+40623211 -
+
+40623212 -
+
+\hypertarget{ux7d50ux8ad6}{%
+\chapter{結論}\label{ux7d50ux8ad6}}
+
+期末報告結論
+
+\hypertarget{ux7d50ux8ad6ux8207ux5efaux8b70}{%
+\section{結論與建議}\label{ux7d50ux8ad6ux8207ux5efaux8b70}}
+
+結論與建議內容
+
+\hypertarget{ux53c3ux8003ux6587ux737b}{%
+\chapter{參考文獻}\label{ux53c3ux8003ux6587ux737b}}
+
+
+\end{document}
