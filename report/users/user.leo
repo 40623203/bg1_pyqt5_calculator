@@ -41,6 +41,7 @@
 </v>
 <v t="yen.20170429215617.1" a="E"><vh>@clean calculator.md</vh>
 <v t="yen.20170429215851.1"><vh>計算機程式內容</vh></v>
+<v t="leo.20180107165602.1"><vh>計算機程式內容</vh></v>
 </v>
 <v t="yen.20170429215922.1" a="E"><vh>@clean discussion.md</vh>
 <v t="yen.20170429220001.1"><vh>程式開發心得</vh></v>
@@ -60,6 +61,12 @@
 <v t="leo.20180106193020.2" a="E"><vh>Recovered node "計算機程式內容" from @clean calculator.md</vh>
 <v t="leo.20180106193020.3"><vh>old:計算機程式內容</vh></v>
 <v t="leo.20180106193020.4"><vh>new:計算機程式內容</vh></v>
+</v>
+</v>
+<v t="leo.20180107165336.2" a="E"><vh>Recovered Nodes</vh>
+<v t="leo.20180107165336.3"><vh>Recovered node "計算機程式內容" from @clean calculator.md</vh>
+<v t="leo.20180107165336.4"><vh>old:計算機程式內容</vh></v>
+<v t="leo.20180107165336.5"><vh>new:計算機程式內容</vh></v>
 </v>
 </v>
 </vnodes>
@@ -388,7 +395,7 @@ Table: 價目表 {#tbl:價目表}
 ---
 40623201 - https://cpb.kmol.info/40623201/doc/trunk/blog/
 
-40623202 - https://cpb.kmol.info/40623202/doc/trunk/blog/
+40623202 - 網誌可以記錄上課的內容，雖然一開始不懂近端跟遠端的差別，也不知道如何推送，但後來越做越熟悉了，已經可以輕鬆地使用網誌紀錄。(網誌連結:https://cpb.kmol.info/40623202/doc/trunk/blog/)/
 
 40623203 - https://cpb.kmol.info/40623203/doc/trunk/blog/
 
@@ -409,7 +416,7 @@ bg1 協同倉儲 : https://github.com/40623203/bg1_pyqt5_calculator
 ---
 40623201 -
 
-40623202 -
+40623202 - 這幾週以來,從一開始的拉計算機表單到開始寫計算機運算的邏輯,利用github協同開始分組完成計算機,在寫乘除運算的邏輯時遇到不少瓶頸,還好有組員們幫忙找出問題並解決,此時我真的了解到團隊的重要。
 
 40623203 -
 
@@ -423,7 +430,7 @@ bg1 協同倉儲 : https://github.com/40623203/bg1_pyqt5_calculator
 
 40623201 -
 
-40623202 -
+40623202 - 
 
 40623203 -
 
@@ -433,6 +440,222 @@ bg1 協同倉儲 : https://github.com/40623203/bg1_pyqt5_calculator
 
 40623212 -
 </t>
+<t tx="leo.20180107165336.2"></t>
+<t tx="leo.20180107165336.3">(uncached) yen.20170429215851.1
+Diff...
+  建立對話框
+  ---
+  
+  自動控制 的內容
+  
+  其中包含一個表格：
+  
+  Table: Python 網際框架比較 {#tbl:網際框架}
+  
+  | Framework | Started | Py2 | Py3 | ORM | Template Engine | Auth Moudule | Database Admin | Project Scale |
+  |:---------:|:-------:|:---:|:---:|:---:|:---------------:|:------------:|:--------------:|:-------------:|
+  | Pyramid | 2005 | V | V |  |  | V |  | large |
+  | Django | 2006 | V | V | V | V | V | V | large |
+  | Flask | 2010 | V |  |  |  |  |  | small |
+  
+  稱為表 {@tbl:網際框架}。
+  
+  Table: 價目表 {#tbl:價目表}
+  
+  | Tables   |      Are      |  Cool |
+  |----------|:-------------:|------:|
+  | col 1 is |  left-aligned | $1600 |
+  | col 2 is |    centered   |   $12 |
+  | col 3 is | right-aligned |    $1 |
+  
+  稱為表 {@tbl:價目表}。
+  
+  關於表格生成可以參考這裡：[http://www.tablesgenerator.com/markdown_tables]
+  
+  [http://www.tablesgenerator.com/markdown_tables]: http://www.tablesgenerator.com/markdown_tables
+  
+- ![建立對話框1][]
+- 
+- [建立對話框1]: ./images/建立對話框1.png {#fig:建立對話框1}
+  
+  
+  ![建立對話框2][]
++ 
++ 稱為圖 {@fig:建立對話框2}。
+  
+  [建立對話框2]: ./images/建立對話框2.png {#fig:建立對話框2}
+  
+  
+  
+  ![建立對話框3][]
++ 
++ 稱為圖 {@fig:建立對話框3}。
+  
+  [建立對話框3]: ./images/建立對話框3.png {#fig:建立對話框3}
+  
+  
+  
+  
+  建立按鈕
+  ---
+  
+  建立程式碼
+  ---
+  
+</t>
+<t tx="leo.20180107165336.4">建立對話框
+---
+
+自動控制 的內容
+
+其中包含一個表格：
+
+Table: Python 網際框架比較 {#tbl:網際框架}
+
+| Framework | Started | Py2 | Py3 | ORM | Template Engine | Auth Moudule | Database Admin | Project Scale |
+|:---------:|:-------:|:---:|:---:|:---:|:---------------:|:------------:|:--------------:|:-------------:|
+| Pyramid | 2005 | V | V |  |  | V |  | large |
+| Django | 2006 | V | V | V | V | V | V | large |
+| Flask | 2010 | V |  |  |  |  |  | small |
+
+稱為表 {@tbl:網際框架}。
+
+Table: 價目表 {#tbl:價目表}
+
+| Tables   |      Are      |  Cool |
+|----------|:-------------:|------:|
+| col 1 is |  left-aligned | $1600 |
+| col 2 is |    centered   |   $12 |
+| col 3 is | right-aligned |    $1 |
+
+稱為表 {@tbl:價目表}。
+
+關於表格生成可以參考這裡：[http://www.tablesgenerator.com/markdown_tables]
+
+[http://www.tablesgenerator.com/markdown_tables]: http://www.tablesgenerator.com/markdown_tables
+
+
+
+![建立對話框2][]
+
+稱為圖 {@fig:建立對話框2}。
+
+[建立對話框2]: ./images/建立對話框2.png {#fig:建立對話框2}
+
+
+
+![建立對話框3][]
+
+稱為圖 {@fig:建立對話框3}。
+
+[建立對話框3]: ./images/建立對話框3.png {#fig:建立對話框3}
+
+
+
+
+建立按鈕
+---
+
+建立程式碼
+---
+
+</t>
+<t tx="leo.20180107165336.5">建立對話框
+---
+
+自動控制 的內容
+
+其中包含一個表格：
+
+Table: Python 網際框架比較 {#tbl:網際框架}
+
+| Framework | Started | Py2 | Py3 | ORM | Template Engine | Auth Moudule | Database Admin | Project Scale |
+|:---------:|:-------:|:---:|:---:|:---:|:---------------:|:------------:|:--------------:|:-------------:|
+| Pyramid | 2005 | V | V |  |  | V |  | large |
+| Django | 2006 | V | V | V | V | V | V | large |
+| Flask | 2010 | V |  |  |  |  |  | small |
+
+稱為表 {@tbl:網際框架}。
+
+Table: 價目表 {#tbl:價目表}
+
+| Tables   |      Are      |  Cool |
+|----------|:-------------:|------:|
+| col 1 is |  left-aligned | $1600 |
+| col 2 is |    centered   |   $12 |
+| col 3 is | right-aligned |    $1 |
+
+稱為表 {@tbl:價目表}。
+
+關於表格生成可以參考這裡：[http://www.tablesgenerator.com/markdown_tables]
+
+[http://www.tablesgenerator.com/markdown_tables]: http://www.tablesgenerator.com/markdown_tables
+
+![建立對話框1][]
+
+[建立對話框1]: ./images/建立對話框1.png {#fig:建立對話框1}
+
+
+![建立對話框2][]
+
+[建立對話框2]: ./images/建立對話框2.png {#fig:建立對話框2}
+
+
+
+![建立對話框3][]
+
+[建立對話框3]: ./images/建立對話框3.png {#fig:建立對話框3}
+
+
+
+
+建立按鈕
+---
+
+建立程式碼
+---
+
+</t>
+<t tx="leo.20180107165602.1">建立按鈕
+---
+
+
+![建立按鈕1][]
+
+[建立按鈕1]: ./images/建立按鈕1.png {#fig:建立按鈕1}
+
+
+
+![建立按鈕2][]
+
+[建立按鈕2]: ./images/建立按鈕2.png {#fig:建立按鈕2}
+
+
+
+
+![建立按鈕3][]
+
+[建立按鈕3]: ./images/建立按鈕3.png {#fig:建立按鈕3}
+
+
+
+
+![建立按鈕4][]
+
+[建立按鈕4]: ./images/建立按鈕4.png {#fig:建立按鈕4}
+
+
+
+
+![建立按鈕5][]
+
+[建立按鈕5]: ./images/建立按鈕5.png {#fig:建立按鈕5}
+
+
+
+![建立按鈕6][]
+
+[建立按鈕6]: ./images/建立按鈕6.png {#fig:建立按鈕6}</t>
 <t tx="yen.20170429103742.1"></t>
 <t tx="yen.20170429103940.1"></t>
 <t tx="yen.20170429132400.1">每一位協同人員各在 users 目錄中建立一個 .leo 檔案
@@ -580,39 +803,13 @@ Calculator 程式細部說明
 <t tx="yen.20170429215851.1">建立對話框
 ---
 
-自動控制 的內容
 
-其中包含一個表格：
+![建立對話框1][]
 
-Table: Python 網際框架比較 {#tbl:網際框架}
-
-| Framework | Started | Py2 | Py3 | ORM | Template Engine | Auth Moudule | Database Admin | Project Scale |
-|:---------:|:-------:|:---:|:---:|:---:|:---------------:|:------------:|:--------------:|:-------------:|
-| Pyramid | 2005 | V | V |  |  | V |  | large |
-| Django | 2006 | V | V | V | V | V | V | large |
-| Flask | 2010 | V |  |  |  |  |  | small |
-
-稱為表 {@tbl:網際框架}。
-
-Table: 價目表 {#tbl:價目表}
-
-| Tables   |      Are      |  Cool |
-|----------|:-------------:|------:|
-| col 1 is |  left-aligned | $1600 |
-| col 2 is |    centered   |   $12 |
-| col 3 is | right-aligned |    $1 |
-
-稱為表 {@tbl:價目表}。
-
-關於表格生成可以參考這裡：[http://www.tablesgenerator.com/markdown_tables]
-
-[http://www.tablesgenerator.com/markdown_tables]: http://www.tablesgenerator.com/markdown_tables
-
+[建立對話框1]: ./images/建立對話框1.png {#fig:建立對話框1}
 
 
 ![建立對話框2][]
-
-稱為圖 {@fig:建立對話框2}。
 
 [建立對話框2]: ./images/建立對話框2.png {#fig:建立對話框2}
 
@@ -620,18 +817,11 @@ Table: 價目表 {#tbl:價目表}
 
 ![建立對話框3][]
 
-稱為圖 {@fig:建立對話框3}。
-
 [建立對話框3]: ./images/建立對話框3.png {#fig:建立對話框3}
 
 
 
 
-建立按鈕
----
-
-建立程式碼
----
 
 </t>
 <t tx="yen.20170429215922.1">心得
@@ -652,7 +842,7 @@ Fossil SCM心得
 
 40623201-
 
-40623202-
+40623202- 第一次接觸到FossilSCM的時候可以說是完全搞不懂，而輕過幾次上課後也慢慢懂得各個指令的用處，也了解它的功能有甚麼，可以說是基礎，對於往後課程的理解也較有幫助。
 
 40623203-
 
