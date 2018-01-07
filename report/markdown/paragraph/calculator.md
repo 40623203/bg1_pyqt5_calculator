@@ -34,19 +34,18 @@ Table: 價目表 {#tbl:價目表}
 
 [http://www.tablesgenerator.com/markdown_tables]: http://www.tablesgenerator.com/markdown_tables
 
+![建立對話框1][]
+
+[建立對話框1]: ./images/建立對話框1.png {#fig:建立對話框1}
 
 
 ![建立對話框2][]
-
-稱為圖 {@fig:建立對話框2}。
 
 [建立對話框2]: ./images/建立對話框2.png {#fig:建立對話框2}
 
 
 
 ![建立對話框3][]
-
-稱為圖 {@fig:建立對話框3}。
 
 [建立對話框3]: ./images/建立對話框3.png {#fig:建立對話框3}
 
